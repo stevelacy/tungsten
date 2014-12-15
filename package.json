@@ -1,1 +1,31 @@
-{}
+{
+  "name": "tungsten",
+  "description": "Token authentication",
+  "version": "0.0.1",
+  "homepage": "http://github.com/stevelacy/tungsten",
+  "repository": "git://github.com/stevelacy/tungsten.git",
+  "author": "Steve Lacy me@slacy.me (slacy.me)",
+  "dependencies": {
+    "jwt-simple": "*"
+  },
+  "devDependencies": {
+    "jshint": "^2.5.10",
+    "jshint-stylish": "^0.2.0",
+    "mocha": "*",
+    "should": "*"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "lint": "jshint . --reporter node_modules/jshint-stylish/stylish.js --exclude node_modules",
+    "test": "npm run lint && mocha --reporter spec"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/stevelacy/tungsten/raw/master/LICENSE"
+    }
+  ]
+}
