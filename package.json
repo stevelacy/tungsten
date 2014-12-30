@@ -9,6 +9,7 @@
     "jwt-simple": "*"
   },
   "devDependencies": {
+    "express": "^4.10.6",
     "jshint": "^2.5.10",
     "jshint-stylish": "^0.2.0",
     "mocha": "*",
