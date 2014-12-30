@@ -5,9 +5,6 @@
   "homepage": "http://github.com/stevelacy/tungsten",
   "repository": "git://github.com/stevelacy/tungsten.git",
   "author": "Steve Lacy me@slacy.me (slacy.me)",
-  "dependencies": {
-    "jwt-simple": "*"
-  },
   "devDependencies": {
     "express": "^4.10.6",
     "jshint": "^2.5.10",
@@ -18,7 +15,7 @@
   },
   "main": "./index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec test/main.js"
   },
   "engines": {
     "node": ">= 0.10"
