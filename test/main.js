@@ -18,30 +18,31 @@ var invalidToken = tungsten.encode({
   exp: date + 345600000
 }, 'othercat');
 
-describe('tungsten', function(){
 
-  it('should return three functions', function(done){
+describe('tungsten', function() {
+
+  it('should return three functions', function(done) {
     tungsten.session.should.be.type('function');
     tungsten.encode.should.be.type('function');
     tungsten.decode.should.be.type('function');
     done();
   });
 
-  describe('#session', function(){
+  describe('#session', function() {
 
 
-    it('should return an error if the secret is not defined', function(done){
-      String(tungsten.session()).should.equal('Error: tungsten: secret must be defined');
+    it('should return an error if the secret is not defined', function(done) {
+      String(tungsten.session()).should.equal('Error: secret must be defined');
       done();
     });
 
-    it('should return if the token is null', function(done){
+    it('should return if the token is null', function(done) {
       var req = {
         query: {},
         headers: {}
       };
       var res = {};
-      var next = function(){
+      var next = function() {
         done();
       };
 
@@ -49,7 +50,7 @@ describe('tungsten', function(){
 
     });
 
-    it('should not set req.auth if token is null', function(done){
+    it('should not set req.auth if token is null', function(done) {
       var app = express()
       .use(tungsten.session('test'))
       .use(function(req, res, next){
@@ -60,12 +61,12 @@ describe('tungsten', function(){
 
       request(app)
         .get('/')
-        .expect(200, function(err, res){
+        .expect(200, function(err, res) {
           should(err).equal(null);
         });
     });
 
-    it('should set req.isAuthenticated() false if token is null', function(done){
+    it('should set req.isAuthenticated() false if token is null', function(done) {
       var app = express()
       .use(tungsten.session('test'))
       .use(function(req, res, next){
@@ -76,14 +77,14 @@ describe('tungsten', function(){
 
       request(app)
         .get('/')
-        .expect(200, function(err, res){
+        .expect(200, function(err, res) {
           should(err).equal(null);
         });
     });
 
-    describe('query token', function(){
+    describe('query token', function() {
 
-      it('should set req.isAuthenticated() false if token is invalid', function(done){
+      it('should set req.isAuthenticated() false if token is invalid', function(done) {
         var app = express()
         .use(tungsten.session(secret))
         .use(function(req, res, next){
@@ -95,12 +96,12 @@ describe('tungsten', function(){
         request(app)
           .get('/')
           .query({token: invalidToken})
-          .expect(200, function(err, res){
+          .expect(200, function(err, res) {
             should(err).equal(null);
           });
       });
 
-      it('should set .isAuthenticated() true if token is valid', function(done){
+      it('should set .isAuthenticated() true if token is valid', function(done) {
         var app = express()
         .use(tungsten.session(secret))
         .use(function(req, res, next){
@@ -111,12 +112,12 @@ describe('tungsten', function(){
         request(app)
           .get('/')
           .query({token: token})
-          .expect(200, function(err, res){
+          .expect(200, function(err, res) {
             should(err).equal(null);
           });
       });
 
-      it('should set req.auth to the correct token data', function(done){
+      it('should set req.auth to the correct token data', function(done) {
         var app = express()
         .use(tungsten.session(secret))
         .use(function(req, res, next){
@@ -129,16 +130,16 @@ describe('tungsten', function(){
         request(app)
           .get('/')
           .query({token: token})
-          .expect(200, function(err, res){
+          .expect(200, function(err, res) {
             should(err).equal(null);
           });
       });
 
     });
 
-    describe('header token', function(){
+    describe('header token', function() {
 
-      it('should set req.isAuthenticated() false if token is invalid', function(done){
+      it('should set req.isAuthenticated() false if token is invalid', function(done) {
         var app = express()
         .use(tungsten.session(secret))
         .use(function(req, res, next){
@@ -150,12 +151,12 @@ describe('tungsten', function(){
         request(app)
           .get('/')
           .set('x-access-token', invalidToken)
-          .expect(200, function(err, res){
+          .expect(200, function(err, res) {
             should(err).equal(null);
           });
       });
 
-      it('should set req.isAuthenticated() true if token is valid', function(done){
+      it('should set req.isAuthenticated() true if token is valid', function(done) {
         var app = express()
         .use(tungsten.session(secret))
         .use(function(req, res, next){
@@ -166,12 +167,12 @@ describe('tungsten', function(){
         request(app)
           .get('/')
           .set('x-access-token', token)
-          .expect(200, function(err, res){
+          .expect(200, function(err, res) {
             should(err).equal(null);
           });
       });
 
-      it('should set req.auth to the correct token data', function(done){
+      it('should set req.auth to the correct token data', function(done) {
         var app = express()
         .use(tungsten.session(secret))
         .use(function(req, res, next){
@@ -184,7 +185,7 @@ describe('tungsten', function(){
         request(app)
           .get('/')
           .set('x-access-token', token)
-          .expect(200, function(err, res){
+          .expect(200, function(err, res) {
             should(err).equal(null);
           });
       });
@@ -195,3 +196,4 @@ describe('tungsten', function(){
   });
 
 });
+
