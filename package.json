@@ -1,7 +1,7 @@
 {
   "name": "tungsten",
   "description": "JSON Web Token authentication",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "http://github.com/stevelacy/tungsten",
   "repository": "git://github.com/stevelacy/tungsten.git",
   "author": "Steve Lacy me@slacy.me (http://slacy.me)",
@@ -25,5 +25,19 @@
       "type": "MIT",
       "url": "http://github.com/stevelacy/tungsten/raw/master/LICENSE"
     }
+  ],
+  "bugs": {
+    "url": "https://github.com/stevelacy/tungsten/issues"
+  },
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "keywords": [
+    "jwt",
+    "webtoken",
+    "authentication",
+    "auth",
+    "jws"
   ]
 }
