@@ -5,13 +5,11 @@
     "body-parser": "^1.10.0",
     "express": "^4.10.4",
     "fission": "0.0.9",
-    "jwt-simple": "^0.2.0",
     "mongoose": "^3.8.20",
     "superagent": "^0.21.0"
   },
   "devDependencies": {
     "browserify": "*",
-    "coffeeify": "*",
     "gulp": "^3.5.0",
     "gulp-autowatch": "0.0.1",
     "gulp-concat": "^2.3.5",
