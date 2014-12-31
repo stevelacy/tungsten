@@ -162,6 +162,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [npm-url]: https://npmjs.org/package/tungsten
 [npm-image]: http://img.shields.io/npm/v/tungsten.svg
 
-[travis-url]: https://travis-ci.org/GITUSERNAME/tungsten
-[travis-image]: https://travis-ci.org/GITUSERNAME/tungsten.png?branch=master
+[travis-url]: https://travis-ci.org/stevelacy/tungsten
+[travis-image]: https://travis-ci.org/stevelacy/tungsten.png?branch=master
 
