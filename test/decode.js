@@ -11,26 +11,20 @@ var tokenFixture = tungsten.encode({iss: 1234}, secret);
 
 describe('#decode', function() {
 
-  describe('error checks', function(){
+  describe('error checks sync', function(){
 
     it('should throw an error if token is not set', function(done){
-      (function() {
-        tungsten.decode()();
-      }).should.throw('decode token is required');
+      tungsten.decode().toString().should.equal('Error: decode token is required');
       done();
     });
 
     it('should throw an error if secret is not set', function(done){
-      (function() {
-        tungsten.decode('sup')();
-      }).should.throw('decode secret is required');
+      tungsten.decode('sup').toString().should.equal('Error: decode secret is required');
       done();
     });
 
     it('should return an error if token is invalid', function(done){
-      (function() {
-        tungsten.decode('sup', 'doge')();
-      }).should.throw('decode token invalid');
+      tungsten.decode('sup', 'doge').toString().should.equal('Error: decode token invalid');
       done();
     });
 

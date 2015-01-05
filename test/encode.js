@@ -13,22 +13,27 @@ describe('#encode', function() {
 
   describe('error checks sync', function(){
 
-    it('should throw an error if payload is not set', function(done) {
-      should(tungsten.encode).throw('encode payload is required');
+    it('should return an error if payload is not set', function(done) {
+      tungsten.encode()
+        .toString()
+        .should
+        .equal('Error: encode payload is required');
       done();
     });
 
-    it('should throw an error if secret is not set', function(done) {
-      (function() {
-        tungsten.encode({})();
-      }).should.throw('encode secret is required');
+    it('should return an error if secret is not set', function(done) {
+      tungsten.encode({})
+        .toString()
+        .should
+        .equal('Error: encode secret is required');
       done();
     });
 
-    it('should throw an error if algorithm is invalid or unsupported', function(done) {
-      (function() {
-        tungsten.encode({}, 'test', 'doge')();
-      }).should.throw('Algorithm invalid or unsupported');
+    it('should return an error if algorithm is invalid or unsupported', function(done) {
+      tungsten.encode({}, 'test', 'doge')
+        .toString().
+        should
+        .equal('Error: Algorithm invalid or unsupported');
       done();
     });
   });
