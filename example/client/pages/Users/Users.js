@@ -1,19 +1,17 @@
 'use strict';
 
-var fission = require('../../app');
+var fission = require('fission');
 var User = require('../../models/User');
 var UserView = require('./User');
 
 var div = fission.React.DOM.div;
 
-module.exports = function() {
-  return fission.collectionView({
-    model: User,
-    itemView: UserView,
-    render: function() {
-      return div({
-        className: 'page'
-      }, this.items);
-    }
-  });
-};
+module.exports = fission.collectionView({
+  model: User,
+  itemView: UserView,
+  render: function() {
+    return div({
+      className: 'page'
+    }, this.items);
+  }
+});

@@ -1,10 +1,9 @@
 /* globals window*/
 'use strict';
 
-var fission = require('../../app');
+var fission = require('fission');
 
-var DOM = fission.React.DOM;
-
+var DOM = fission.DOM;
 
 var loginLink = DOM.a({
   href: '/login'
@@ -27,5 +26,4 @@ module.exports = fission.view({
       window.localStorage.getItem('token') == null ? loginLink : userLink
     );
   }
-
 });

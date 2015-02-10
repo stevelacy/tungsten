@@ -1,11 +1,11 @@
 'use strict';
 
-var fission = require('../app');
+var fission = require('fission');
 
 module.exports = fission.model({
   props: {
     _id: 'string',
     username: 'string'
   },
-  url: fission.config.url + '/v1/users'
+  url: '/v1/users'
 });

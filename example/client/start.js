@@ -1,24 +1,25 @@
-var fission = require('./app');
+/* globals document*/
+'use strict';
+
+var fission = require('fission');
 var IndexView = require('./pages/Index/Index');
 var LoginView = require('./pages/Login/Login');
 var UsersView = require('./pages/Users/Users');
 
-fission.router.route('/', {
-  title: 'Welcome',
-  view: IndexView,
-  el: 'content'
+
+var Router = fission.router({
+  index: {
+    view: IndexView,
+    path: '/'
+  },
+  login: {
+    view: LoginView,
+    path: 'login'
+  },
+  users: {
+    view: UsersView,
+    path: 'users'
+  }
 });
 
-fission.router.route('/login', {
-  title: 'Welcome',
-  view: LoginView,
-  el: 'content'
-});
-
-fission.router.route('/users', {
-  title: 'Welcome',
-  view: UsersView,
-  el: 'content'
-});
-
-fission.router.start();
+Router.start(document.body);

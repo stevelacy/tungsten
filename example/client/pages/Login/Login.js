@@ -2,13 +2,12 @@
 'use strict';
 
 var superagent = require('superagent');
-var fission = require('../../app');
+var fission = require('fission');
 
-var DOM = fission.React.DOM;
+var DOM = fission.DOM;
 
 module.exports = fission.view({
   init: function() {
-
     var o = {
       username: '',
       password: ''
