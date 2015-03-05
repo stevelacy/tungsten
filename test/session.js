@@ -17,6 +17,11 @@ var invalidToken = tungsten.encode({
   exp: date + 345600000
 }, 'othercat');
 
+var expiredToken = tungsten.encode({
+  id: '123',
+  exp: date - 100
+}, secret);
+
 
   describe('#session', function() {
     describe('error checks', function() {
@@ -183,5 +188,51 @@ var invalidToken = tungsten.encode({
 
     });
 
+    describe('expiration option', function() {
+
+      it('should not allow an expired token', function(done) {
+        var opts = {
+          exp: true
+        };
+        var app = express()
+        .use(tungsten.session(secret, opts))
+        .use(function(req, res, next){
+          should(req.isAuthenticated()).equal(false);
+          should(req.auth).equal(undefined);
+          done();
+        });
+
+        request(app)
+          .get('/')
+          .query({token: expiredToken})
+          .expect(200, function(err, res) {
+            should(err).equal(null);
+          });
+
+      });
+
+      it('should allow a not expired token', function(done) {
+        var opts = {
+          exp: true
+        };
+        var app = express()
+        .use(tungsten.session(secret, opts))
+        .use(function(req, res, next){
+          should(req.isAuthenticated()).equal(true);
+          should(req.auth).be.type('object');
+          should(req.auth.id).equal('123');
+          done();
+        });
+
+        request(app)
+          .get('/')
+          .query({token: token})
+          .expect(200, function(err, res) {
+            should(err).equal(null);
+          });
+
+      });
+
+    });
 
   });
