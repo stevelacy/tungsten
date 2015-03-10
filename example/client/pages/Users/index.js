@@ -7,7 +7,9 @@ var UserView = require('./User');
 var div = fission.React.DOM.div;
 
 module.exports = fission.collectionView({
-  model: User,
+  collection: {
+    model: User
+  },
   itemView: UserView,
   render: function() {
     return div({

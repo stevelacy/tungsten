@@ -6,7 +6,8 @@ var Sync = require('ampersand-sync');
 
 window.token = window.localStorage.getItem('token');
 
-var tokenSync = function(method, model, options) {
+module.exports = function(method, model, options) {
+  console.log(method, model, options);
   if (window.token != null) {
     options.headers = {
       'x-access-token': window.token

@@ -7,12 +7,18 @@ var fission = require('fission');
 var DOM = fission.DOM;
 
 module.exports = fission.view({
+  statics: {
+    willTransitionTo: function(transition) {
+      if (window.localStorage.getItem('token')) {
+        return transition.redirect('/');
+      }
+    }
+  },
   init: function() {
-    var o = {
+    return {
       username: '',
       password: ''
     };
-    return o;
   },
   login: function(e) {
 
@@ -21,7 +27,8 @@ module.exports = fission.view({
       username: this.state.username,
       password: this.state.password
     };
-    return superagent.post('/login', data, (function(_this) {
+
+    superagent.post('/login', data, (function(_this) {
       return function(err, res) {
         if ((res != null ? res.status : void 0) === 200) {
           window.user = res.body.user;

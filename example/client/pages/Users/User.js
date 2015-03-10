@@ -2,12 +2,11 @@
 
 var fission = require('fission');
 var User = require('../../models/User');
-var _ref = fission.DOM;
-var div = _ref.div;
-var br = _ref.br;
+var DOM = fission.DOM;
+var div = DOM.div;
+var br = DOM.br;
 
 module.exports = fission.modelView({
-  model: User,
   render: function() {
     return div({
       className: 'item'
