@@ -6,11 +6,11 @@
   "repository": "git://github.com/stevelacy/tungsten.git",
   "author": "Steve Lacy me@slacy.me (http://slacy.me)",
   "devDependencies": {
-    "express": "^4.10.6",
-    "jshint": "^2.5.10",
+    "express": "^4.12.4",
+    "jshint": "^2.7.0",
     "jshint-stylish": "^0.2.0",
-    "mocha": "*",
-    "should": "*",
+    "mocha": "^2.2.5",
+    "should": "^6.0.3",
     "supertest": "^0.15.0"
   },
   "main": "./index.js",
@@ -20,12 +20,7 @@
   "engines": {
     "node": ">= 0.10"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/stevelacy/tungsten/raw/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/stevelacy/tungsten/issues"
   },
