@@ -1,7 +1,7 @@
 {
   "name": "tungsten",
   "description": "JSON Web Token authentication",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://github.com/stevelacy/tungsten",
   "repository": "git://github.com/stevelacy/tungsten.git",
   "author": "Steve Lacy me@slacy.me (http://slacy.me)",
